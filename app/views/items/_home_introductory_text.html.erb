@@ -1,0 +1,132 @@
+<%
+# WontoMedia - a wontology web application
+# Copyright (C) 2010 - Glen E. Ivey
+#    www.wontology.com
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License version
+# 3 as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program in the file COPYING and/or LICENSE.  If not,
+# see "http://www.gnu.org/licenses/".
+%>
+
+
+<style type="text/css">
+  #starting-intro-text p {
+    font-size: 120%;
+    line-height: 130%;
+    margin-top: 1em;
+  }
+  #starting-intro-text a {
+    border-bottom: 2px solid #e8e8ff;
+  }
+  #starting-intro-text a:hover {
+    border-bottom: none;
+  }
+</style>
+<div id="intro-text-container" style="width: 90%; margin-left: 5%;">
+  <div id="starting-intro-text">
+    <p>
+<span style='color: black; font-family: Monotype Corsiva, Apple Chancery, URW Chancery L, chancery, script, cursive; font-style: italic; font-size: 130%;'>Ada<span style='color: #b0b0ff;'>'</span>s Daughters</span>
+
+is an index of notable women in technology and science, inspired by
+<a href="http://findingada.com/">Ada Lovelace Day</a>.  Here you will
+find a community-generated listing of many inspiring technical women,
+past and present, including links to biographical information and
+people's Ada Lovelace Day posts about them.
+
+    </p><p>
+
+If you've blogged or posted content for Ada Lovelace Day, please make
+sure the woman you wrote about is listed and that there is a link to
+your posting.  You can look through our full
+<a href="/NotableWoman">list of notable women in
+technology/science</a>, or just go straight to
+ <b><%= link_to_create_instance_of 'NotableWoman',
+'add a new "notable woman" entry' -%></b>.
+
+    </p><p>
+
+And don't miss <%= link_to_item_by_name 'AdaLovelace',
+'our entry on Ada Lovelace herself' -%>.
+
+    </p>
+  </div>
+  <div id="remaining-intro-text">
+    <p>
+
+You can contact us with any kind of question or comment
+<a href="http://twitter.com/adasdaughters/">via twitter</a>, on our
+<a href="http://rubyforge.org/forum/?group_id=7903">discussion forum</a>
+or <a href="http://rubyforge.org/mail/?group_id=7903">email list</a>,
+or privately <a href="mailto:brother@adasdaughters.org">by direct
+email</a>.
+
+    </p><p>
+
+All content here, <em>including anything you submit</em>, is licensed
+under the <a href="http://www.gnu.org/licenses/fdl-1.3.html">GNU Free
+Documentation License</a>.  Please do not submit any text unless you
+have written it or it is publicly available under a compatible license.
+
+    </p>
+  </div>
+</div>
+
+
+
+<!---------------------------------------------------------------
+
+  <p>
+A wontology is a <u>w</u>iki-<u>ontology</u>: a publicly editable
+store of information in lists, trees, hierarchies, and relationships.
+To get started:
+  </p><ul>
+    <li>read <a href="<%= WontoMedia.help_url_prefix -%>Help:Information_as_Relationships">Information as Relationships</a>, or</li>
+    <li>do our <a href="<%= WontoMedia.help_url_prefix -%>Help:Tutorials/Creating_an_Item">first tutorial</a>.</li>
+  </ul><p>
+<em>You are welcome to experiment with this system and its data</em>, to
+add new information, and to expand or edit what is already present.
+  </p><p>
+For more information, see
+
+<a href="<%= WontoMedia.help_url_prefix -%>Help:Wontology_Concepts">Wontology Concepts</a>,
+
+<a href="<%= WontoMedia.help_url_prefix -%>Help:Naming_Conventions">Naming Conventions</a>, and
+
+<a href="<%= WontoMedia.help_url_prefix -%>Help:About_Wontology.org">About wontology.org</a>.
+
+This wontology contains information for many different subject areas.
+You can simply browse from the links below, or start from
+
+<a href="<%= WontoMedia.help_url_prefix -%>Help:Browsing_a_Wontology">Browsing a Wontology</a>
+
+There are also <a href="<%= WontoMedia.help_url_prefix -%>Help:Tutorials" target="_blank">several other tutorials</a> and a <a href="<%= WontoMedia.help_url_prefix -%>Help:GlossaryAtoO">glossary</a> of wontology terms.
+
+  </p><p>
+
+Please contact us on our
+<a href="http://rubyforge.org/forum/?group_id=7903">forum</a> or
+<a href="http://rubyforge.org/mail/?group_id=7903">email list</a>
+with questions or comments.
+
+  </p>
+
+
+
+
+
+  #intro-text-container li {
+    font-size: 140%;
+    width: 78%;
+    margin-left: 11%;
+  }
+
+-->

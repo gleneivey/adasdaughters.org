@@ -1,0 +1,48 @@
+FileETag MTime Size
+
+    #### support for serving static gzip'ed content in lieu of o-t-f compression
+<Files ~ "\.css\.gz$">
+  AddEncoding gzip .gz
+  ForceType text/css
+</Files>
+<Files ~ "\.js\.gz$">
+  AddEncoding gzip .gz
+  ForceType text/javascript
+</Files>
+
+
+ReWriteEngine on
+
+
+  # serve pre-gzip'ed files where appropriate:
+ReWriteCond %{HTTP_HOST} ^adasdaughters.org$
+ReWriteCond %{REQUEST_FILENAME} _packaged
+ReWriteCond %{REQUEST_FILENAME}.gz -f
+ReWriteCond %{HTTP_USER_AGENT} !Safari
+ReWriteCond %{HTTP_USER_AGENT} !Mozilla/4 [OR]
+ReWriteCond %{HTTP_USER_AGENT} MSIE
+ReWriteCond %{REQUEST_FILENAME} !^.+\.gz$
+ReWriteRule ^(.*)$ $1.gz [L]
+
+  # for Rails apps, use Rails query parameters for cache control
+ReWriteCond %{HTTP_HOST} ^adasdaughters.org$
+ReWriteCond %{QUERY_STRING} ^[0-9]+$
+ReWriteRule ^(.*)$ - [env=is_versioned:true]
+
+# For all assets that aren't stamped by rails, no caching
+Header set "Cache-Control" "max-age=0"
+# For all assets that ARE stamped by rails, cache them for 30 days
+Header set "Cache-Control" "max-age=2592000" env=is_versioned
+
+
+ReWriteCond %{HTTP_HOST} ^www\.adasdaughters\.org
+ReWriteRule ^(.*)$ http://adasdaughters.org/$1 [R=301,L]
+
+ReWriteCond /home/glenivey/public_html/adasdaughters.org/maintenance.html -f
+ReWriteCond %{REQUEST_FILENAME} !maintenance
+ReWriteRule ^(.*)$ /maintenance.html [L,R=307]
+
+ReWriteCond %{HTTP_HOST} ^adasdaughters.org$
+ReWriteCond $1 !\.gz$
+ReWriteCond $1 !adasdaughters-maintenance
+ReWriteRule ^(.*)$ http://127.0.0.1:12024/$1 [P,QSA,L]
